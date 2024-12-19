@@ -1,0 +1,815 @@
+/* Linked Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lora:ital,wght@0,400..700;1,400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+
+/* Black Scroll*/
+::-webkit-scrollbar-thumb {
+  background-color: #555; 
+  border-radius: 5px; 
+}
+
+::-webkit-scrollbar-track {
+  background: #333; 
+}
+
+html {
+  scrollbar-width: auto;
+  scrollbar-color: #555 #333; 
+}
+
+
+
+/* Universal */
+:root {
+  --purple:  #673ee4;
+  --dark-purple: #5a34c2;
+  --pink: #fd5286;
+  --gray: #e6e6e6;
+}
+
+html {
+  font-weight: 400;
+  font-family: "Inter", sans-serif;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  transition: 300ms ease;
+}
+
+
+
+/* Templates Class */
+.container {
+  margin: 139px 142px 80px 142px;
+
+}
+
+.title-section {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 20px;
+}
+
+.image {
+  height: 220px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.news:hover .image  img {
+  transform: scale(1.05);
+}
+
+.title {
+  font-size: 1.3rem;
+  margin: 10px 0;
+  font-weight: 500;
+}
+
+.label {
+  font-size: 0.75rem;
+}
+
+.label > span {
+  font-weight: bold;
+}
+
+.content {
+  padding: 20px 0;
+}
+
+.content.absolute {
+  padding: 20px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background: linear-gradient(to top, 
+  rgba(0,0,0,0.8),
+  rgba(0,0,0,0.5),
+  rgba(0,0,0,0));
+}
+
+.content > * {
+  color: #111;
+}
+
+.content.absolute > * {
+  color: white;
+}
+
+.content > h1,
+.content > h2, 
+.content > h3, 
+.content > h4, 
+.content > h5 {
+  max-height: 94px;
+  overflow: hidden;
+}
+
+.content .overflow-hd {
+  max-height: 120px;
+  overflow: hidden;
+}
+
+#submit-btn {
+  color: var(--purple);
+  display: inline-block;
+  margin-top: 10px;
+}
+
+#submit-btn span {
+  transition: 300ms ease;
+}
+
+.news:hover #submit-btn {
+  color: var(--pink);
+}
+
+.news:hover #submit-btn span {
+  margin-left: 8px;
+}
+
+
+
+/* Navigation Bar Section */
+nav {
+  width: 100%;
+  background: var(--purple);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  padding: 0 142px;
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-columns: max-content max-content 1fr;
+  place-items: center;
+  z-index: 999999;
+}
+
+.nav-logo {
+  padding: 0 20px 0 0;
+}
+
+.nav-logo h1 {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.nav-menu ul {
+  display: flex;
+}
+
+.nav-menu ul li a {
+  display: inline-block;
+  padding: 18px 20px;
+  font-weight: 500;
+}
+
+.nav-menu ul li a:hover {
+  background: var(--pink);
+}
+
+.nav-dropdown-menu {
+  display: none;
+}
+
+.nav-dropdown-menu #check {
+  display: none;
+}
+
+.nav-dropdown-menu .hamburger{
+  width: 30px;
+  height: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  position: relative;
+  transform: scale(0.8);
+}
+
+.nav-dropdown-menu .hamburger span {
+  display: block;
+  height: 4px;
+  background: white;
+  transition: 300ms ease;
+  border-radius: 2px;
+}
+
+#check:checked + .hamburger span:nth-child(1) {
+  transform: translateY(10px) rotate(45deg);
+}
+
+#check:checked + .hamburger span:nth-child(2) {
+  opacity: 0;
+}
+
+#check:checked + .hamburger span:nth-child(3) {
+  transform: translateY(-10px) rotate(-45deg);
+}
+
+.nav-dropdown-menu ul {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: var(--dark-purple);
+  top: 52px;
+  border-top: 2px solid white;
+  left: -100%;
+  transition: 0.5s ease;
+}
+
+.nav-dropdown-menu ul li {
+  display: block;
+  text-align: center;
+}
+
+.nav-dropdown-menu ul li a {
+  font-weight: 600;
+  display: inline-block;
+  padding: 10px;
+  margin-top: 7.5vh;
+  transition: 300ms ease;
+}
+
+.nav-dropdown-menu ul li a:hover {
+  color: var(--pink);
+}
+
+.nav-dropdown-menu #check:checked ~ ul {
+  left: 0;
+}
+
+.nav-search {
+  justify-self: end;
+  cursor: pointer;
+}
+
+.nav-search i {
+  transition: 300ms ease;
+  padding: 18px 0 18px 20px;
+}
+
+
+
+/* Hero Section */
+.hero {
+  margin: 0 -50px;
+  display: grid;
+  grid-template-columns: 1fr;
+  margin-bottom: 100px;
+  gap: 30px;
+}
+
+.top {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 370px;
+  grid-auto-rows: 370px;
+  gap: 10px;
+}
+
+.top .news {
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.top .news:hover img {
+  transform: scale(1.05);
+}
+
+.bottom {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 70px;
+}
+
+.bottom .image {
+  height: auto;
+}
+
+.bottom:hover .image img {
+  transform: scale(1.05);
+}
+
+.bottom .content {
+  display: grid;
+  align-content: center;
+}
+
+.bottom .content h1 {
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.bottom:hover #submit-btn {
+  color: var(--pink);
+}
+
+.bottom:hover #submit-btn span {
+  margin-left: 8px;
+}
+
+
+
+/* Latest News Section */
+.latest-news {
+  margin-bottom: 100px;
+}
+
+.wrapper-latest-news {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.wrapper-latest-news .news {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-content: start;
+}
+
+
+
+/* Must Read Section */
+.must-read {
+  margin-bottom: 100px;
+}
+
+.wrapper-must-read {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 20px;
+}
+
+.wrapper-must-read .news.one  {
+  grid-column: 1/2;
+  grid-row: 1/3;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-content: start;
+}
+
+.wrapper-must-read .news.two {
+  grid-column: 2/3;
+  grid-row: 1/3;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.wrapper-must-read .news.two img {
+  max-height: 700px;
+}
+
+.wrapper-must-read .news.three {
+  grid-column: 3/4;
+  grid-row: 1/2;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-content: start;
+}
+
+.wrapper-must-read .news.three .image,
+.wrapper-must-read .news.four .image {
+  height: 110px;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.wrapper-must-read .news.four {
+  grid-column: 3/4;
+  grid-row: 2/3;
+}
+
+
+
+/* Editor's Pick */
+.editors-pick {
+  margin-bottom: 100px;
+}
+
+.editors-pick .news.one {
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  display: block;
+  margin-bottom: 20px;
+  height: 500px;
+}
+
+.wrapper-editors-pick {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-rows: minmax(200px, auto);
+  grid-auto-rows: minmax(200px, auto);
+  gap: 20px;
+}
+
+
+
+/* Season and Manga */
+.season-and-manga {
+  margin-bottom: 100px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.wrapper-season,
+.wrapper-manga {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+
+
+/* Top Creator Section */
+.top-creator {
+  margin-bottom: 100px;
+}
+
+.wrapper-top-creator {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  grid-template-rows: 100px;
+  grid-auto-rows: 100px;
+  gap: 30px;
+}
+
+.wrapper-top-creator .creator {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.wrapper-top-creator .creator img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.wrapper-top-creator .creator .info h5 {
+  color: black;
+}
+
+.wrapper-top-creator .creator .info p {
+  color: var(--purple);
+}
+
+.wrapper-top-creator .creator:hover .info p {
+  color: var(--pink);
+}
+
+
+
+/* Update Section */
+.update {
+  width: 100%;
+  background: var(--gray);
+  border-radius: 10px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 40px;
+  margin-bottom: 100px;
+}
+
+.left p {
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  color: #111;
+}
+
+.left h5 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #111;
+}
+
+.left span {
+  color: var(--purple);
+}
+
+.right {
+  align-self: center;
+  justify-self: end;;
+}
+
+.right input {
+  outline: none;
+  width: 250px;
+  padding: 10px;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  color: #111;
+  font-family: "Inter", sans-serif;
+}
+
+.right a {
+  background: var(--pink);
+  padding: 10px;
+  border-radius: 5px;
+  transition: 300ms ease;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.right a:hover {
+  transform: scale(1.05);
+}
+
+
+
+/* Footer Section */
+footer {
+  background: var(--dark-purple);
+  padding: 0 142px;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: minmax(300px, auto);
+  grid-auto-rows: minmax(300px, auto);
+  gap: 50px;
+}
+
+.brand {
+  padding: 40px 0;
+}
+
+.brand h6 {
+  margin-bottom: 10px;
+  color: white;
+}
+
+.brand .social-media {
+  margin-top: 30px;
+  display: flex;
+  gap: 30px;
+}
+
+.brand .social-media a {
+  padding: 8px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.7);
+  transition: 300ms ease;
+}
+
+.brand .social-media a:hover {
+  transform: translateY(-5px);
+}
+
+.brand .social-media i {
+  padding: 8px;
+  background: var(--pink);
+  border-radius: 50%;
+}
+
+.wrapper-menu {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, auto));
+  padding: 40px 0;
+  gap: 30px;
+}
+
+.item h6 {
+  font-weight: 600;
+}
+
+.item ul li {
+  line-height: 2em;
+}
+
+.item ul li a:hover {
+  text-decoration: underline;
+  color: var(--pink);
+}
+
+
+
+
+
+
+
+
+
+
+/* Responsive for Template Class */
+@media (max-width: 845px) {
+  .container {
+    margin: 139px 20px 80px 20px;
+  }
+}
+
+
+@media (min-width: 846px) and (max-width: 1073px) {
+  .container {
+    margin: 139px 40px 80px 40px;
+  }
+}
+
+
+
+
+
+/* Responsive for Navigation Bar */
+@media (max-width: 845px) {
+  nav {
+    padding: 0 20px;
+    grid-template-columns: max-content 1fr max-content;
+  }
+
+  .nav-logo {
+    order: 2;
+    padding: 0;
+  }
+
+  .nav-menu {
+    display: none;
+  }
+
+  .nav-dropdown-menu {
+    display: block;
+    order: 1;
+  }
+
+  .nav-search {
+    order: 3;
+  }
+}
+
+
+@media (min-width: 846px) and (max-width: 1073px) {
+  nav {
+    padding: 0 40px;
+  }
+}
+
+
+
+
+
+/* Responsive for Hero Section */
+@media (max-width: 797px) {
+  .bottom {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .bottom .image {
+    height: 400px;
+  }
+}
+
+
+@media (max-width: 1073px) {
+  .hero {
+    margin: 0;
+    margin-bottom: 100px;
+  }
+
+  .top {
+    grid-template-columns: 1fr;
+    grid-template-rows: 350px;
+    grid-auto-rows: 350px;
+  }
+}
+
+
+
+
+
+/* Responsive for Must Read Section */
+@media (max-width: 782px) {
+  .wrapper-must-read {
+    grid-template-columns: 1fr;
+  }
+
+  .wrapper-must-read .news.one,
+  .wrapper-must-read .news.two,
+  .wrapper-must-read .news.three,
+  .wrapper-must-read .news.four {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .wrapper-must-read .news.one {
+    order: 2;
+    margin-bottom: 0;
+  }
+
+  .wrapper-must-read .news.two {
+    order: 1;
+    height: 350px;
+  }
+
+  .wrapper-must-read .news.three {
+    order: 3;
+  }
+
+  .wrapper-must-read .news.four {
+    order: 4;
+  }
+}
+
+
+
+
+
+/* Responsive for Season and Manga Section */
+@media (max-width: 1190px) {
+  .season-and-manga {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+
+
+/* Responsive for Top Creator Section */
+@media (max-width: 534px) {
+  .top-creator h5 {
+    text-align: center;
+  }
+}
+
+
+
+
+
+/* Responsive for Update Section */
+@media (max-width: 485px) {
+  .update {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .left {
+    justify-self: center;
+  }
+
+  .right {
+    text-align: center;
+    justify-self: center;
+  }
+
+  .right input {
+    width: 100%;
+  }
+
+  .right a {
+    margin-top: 10px;
+  }
+}
+
+
+@media (min-width: 486px) and (max-width: 900px) {
+  .update {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .left {
+    justify-self: center;
+  }
+
+  .right {
+    justify-self: center;
+  }
+}
+
+
+
+
+
+/* Responsive for Footer Section */
+@media (max-width: 1073px) {
+  footer {
+    padding: 0 40px;
+  }
+}
+
+
+@media (max-width: 1055px) {
+  footer {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .wrapper-menu {
+    padding-top: 0;
+  }
+}
